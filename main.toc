@@ -1,0 +1,6 @@
+\babel@toc {french}{}\relax 
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}%
+\contentsline {section}{\numberline {2}Méthodologie}{3}{section.2}%
+\contentsline {section}{\numberline {3}Entretiens}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Entretien 1: Homme de 30 ans, quartier des Forges}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Entretien 2: Femme de 65 ans, centre-ville}{7}{subsection.3.2}%

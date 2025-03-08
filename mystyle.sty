@@ -1,0 +1,107 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{mystyle}[2025/03/06 Custom style for interview report]
+
+% Packages requis
+\RequirePackage{xcolor}
+\RequirePackage{tcolorbox}
+\RequirePackage{titlesec}
+\RequirePackage{fancyhdr}
+\RequirePackage{enumitem}
+\RequirePackage{csquotes}
+\RequirePackage{hyperref}
+
+% Suppress specific chktex warnings globally
+% -n 8 = Suppress "Wrong length of dash" warnings
+% -n 36 = Suppress "You should put a space in front of parenthesis" warnings
+% -n 43 = Suppress "You should avoid spaces in front of punctuation" warnings
+% chktex-file -n 8 -n 36 -n 43
+
+% Couleurs personnalisées
+\definecolor{primarycolor}{RGB}{0, 128, 128} % Teal
+\definecolor{secondarycolor}{RGB}{70, 130, 180} % Steel Blue
+\definecolor{lightbackground}{RGB}{240, 248, 255} % Alice Blue
+
+% Configuration des boîtes pour les questions
+\tcbset{
+    question/.style={
+        colback=lightbackground,
+        colframe=primarycolor,
+        fonttitle=\bfseries,
+        top=2mm,
+        bottom=2mm,
+        left=2mm,
+        right=2mm,
+        arc=2mm,
+        boxrule=1pt,
+        title=#1
+    }
+}
+
+% Configuration des titres
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{primarycolor}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{secondarycolor}}
+  {\thesubsection}{1em}{}
+
+% Configuration de l'en-tête et du pied de page
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhead[L]{Analyse du paysage}
+\fancyhead[R]{\thepage}
+\fancyfoot[C]{}
+
+% Configuration des hyperliens
+\hypersetup{
+    colorlinks=true,
+    linkcolor=primarycolor,
+    filecolor=secondarycolor,
+    urlcolor=secondarycolor,
+    citecolor=primarycolor
+}
+
+% Handle special characters better in interview transcripts
+\def\bracketQuote#1{#1}
+
+% Définir la commande pour créer une fiche d'entretien
+\newcommand{\ficheEntretien}[6]{%
+    \begin{minipage}{\textwidth}
+    \colorbox{gray!10}{%
+    \begin{minipage}{0.98\textwidth}
+    \small\textbf{Fiche technique de l'entretien}
+    
+    \begin{tabular}{ll}
+    \textbf{Participant:} & #1 \\
+    \textbf{Lieu de résidence:} & #2 \\
+    \textbf{Durée de résidence:} & #3 \\
+    \textbf{Type d'habitation:} & #4 \\
+    \textbf{Date de l'entretien:} & #5 \\
+    \textbf{Durée:} & #6 \\
+    \end{tabular}
+    \end{minipage}}
+    \end{minipage}
+}
+
+% Définir la commande pour les questions
+\newcommand{\question}[2]{%
+    \begin{tcolorbox}[question={\textbf{#1}}]
+    \textbf{#2}
+    \end{tcolorbox}
+}
+
+% Définir la commande pour les citations d'intervieweur
+\newcommand{\intervieweur}[1]{%
+    \begin{quote}
+    \textit{#1}
+    \end{quote}
+}
+
+% Définir la commande pour les réponses
+\newcommand{\reponse}[1]{%
+    \textit{#1}
+}
+
+\endinput

@@ -1,0 +1,12 @@
+% This file contains helper commands to deal with problematic characters in interview transcripts
+
+% Disable specific chktex warnings in interview files
+% chktex-file -n 8 -n 36 -n 43
+
+% Command to safely handle text with special characters like [] and backslashes
+\newcommand{\verbtxt}[1]{#1}
+
+% Command for speech turns
+\newcommand{\speaker}[2]{
+  \textbf{#1 :} #2
+}
